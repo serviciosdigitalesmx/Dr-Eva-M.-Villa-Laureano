@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <meta name="description" content="Dra. Eva M. Villa Laureano, MVZ - Atención médica veterinaria con enfoque preventivo y comunitario en Escobedo, Nuevo León.">
+    <title>Dra. Eva Villa · MVZ · Servicio social</title>
+    
+    <!-- Google Fonts: Inter + Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* ========== VARIABLES & RESET ========== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --verde-clinico: #3FA796;
+            --verde-oscuro: #2c7a6b;
+            --verde-claro: #e0f0ec;
+            --blanco: #ffffff;
+            --gris-claro: #f3f6f4;
+            --gris-medio: #d0dbd8;
+            --gris-texto: #2e3b3a;
+            --shadow-sm: 0 4px 12px rgba(0, 40, 30, 0.06);
+            --shadow-md: 0 8px 20px rgba(0, 40, 30, 0.08);
+            --shadow-hover: 0 12px 24px rgba(63, 167, 150, 0.15);
+            --transition: all 0.25s ease;
+            --font-family: 'Inter', 'Poppins', -apple-system, sans-serif;
+            
+            /* Mobile first spacing */
+            --space-xs: 0.5rem;
+            --space-sm: 1rem;
+            --space-md: 1.5rem;
+            --space-lg: 2rem;
+            --space-xl: 3rem;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: var(--font-family);
+            background-color: var(--blanco);
+            color: var(--gris-texto);
+            line-height: 1.5;
+            overflow-x: hidden;
+        }
+
+        /* ========== UTILIDADES ========== */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 0.5rem;
+        }
+
+        section {
+            padding: var(--space-xl) 0;
+        }
+
+        .section-alt {
+            background-color: var(--gris-claro);
+        }
+
+        h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: var(--space-md);
+            color: var(--gris-texto);
+            letter-spacing: -0.02em;
+        }
+        
+        h2:after {
+            content: '';
+            display: block;
+            width: 70px;
+            height: 4px;
+            background: var(--verde-clinico);
+            margin-top: 0.5rem;
+            border-radius: 4px;
+        }
+
+        /* ========== NAVEGACIÓN ========== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255,255,255,0.98);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            padding: var(--space-sm) 0;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: 600;
+            color: var(--verde-clinico);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .logo i {
+            font-size: 1.2rem;
+        }
+
+        /* Menú móvil simplificado */
+        .nav-links {
+            display: none;
+        }
+        
+        .mobile-menu-btn {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--gris-texto);
+            cursor: pointer;
+        }
+
+        /* ========== WHATSAPP FLOTANTE ========== */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 1.5rem;
+            right: 1.5rem;
+            background-color: #25d366;
+            color: white;
+            border-radius: 60px;
+            padding: 0.75rem 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            font-weight: 500;
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3);
+            z-index: 999;
+            animation: float 3s infinite ease-in-out;
+            border: 1px solid rgba(255,255,255,0.2);
+            font-size: 0.95rem;
+        }
+        
+        .whatsapp-float i {
+            font-size: 1.5rem;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+
+        /* ========== HERO ========== */
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), 
+                        url('https://raw.githubusercontent.com/serviciosdigitalesmx/Dr-Eva-M.-Villa-Laureano/main/fondo.png');
+            background-size: cover;
+            background-position: center;
+            padding: 5rem 0 2rem;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(135deg, rgba(63, 167, 150, 0.8) 0%, rgba(33, 33, 33, 0.6) 100%);
+            z-index: 1;
+        }
+
+        .hero .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-content {
+            max-width: 750px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(12px);
+            padding: var(--space-lg) var(--space-md);
+            border-radius: 32px;
+            border: 1px solid rgba(255,255,255,0.2);
+            color: white;
+        }
+
+        .hero-logo {
+            max-width: 140px;
+            height: auto;
+            margin-bottom: var(--space-sm);
+            filter: brightness(1.1);
+        }
+
+        .hero h1 {
+            font-size: clamp(1.8rem, 6vw, 2.8rem);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: var(--space-xs);
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .hero-sub {
+            font-size: 1.2rem;
+            margin-bottom: var(--space-md);
+            opacity: 0.95;
+        }
+
+        .btn-wa-large {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            background: white;
+            color: var(--verde-oscuro);
+            padding: 0.9rem 1.8rem;
+            border-radius: 60px;
+            font-weight: 600;
+            text-decoration: none;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            transition: var(--transition);
+            border: none;
+            width: 100%;
+            justify-content: center;
+        }
+        
+        .btn-wa-large i {
+            font-size: 1.4rem;
+            color: #25d366;
+        }
+
+        /* ========== SOBRE MÍ ========== */
+        .about-text p {
+            font-size: 1.1rem;
+            margin-bottom: var(--space-sm);
+            color: var(--gris-texto);
+        }
+
+        .exp-badge {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin-top: var(--space-md);
+        }
+
+        .badge {
+            background: white;
+            padding: 0.5rem 1rem;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            color: var(--verde-oscuro);
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--gris-medio);
+        }
+
+        .badge i {
+            margin-right: 6px;
+            color: var(--verde-clinico);
+        }
+
+        /* ========== SERVICIOS CON FICHAS PROGRESIVAS ========== */
+        .services-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin: var(--space-md) 0;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 24px;
+            box-shadow: var(--shadow-sm);
+            border: 2px solid transparent;
+            transition: var(--transition);
+            overflow: hidden;
+        }
+
+        .service-header {
+            padding: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            cursor: pointer;
+            background: white;
+        }
+
+        .service-header i {
+            font-size: 2rem;
+            color: var(--verde-clinico);
+            width: 40px;
+            text-align: center;
+        }
+
+        .service-header h3 {
+            flex: 1;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .service-header .chevron {
+            transition: transform 0.3s ease;
+            color: var(--gris-medio);
+        }
+
+        .service-card.active .chevron {
+            transform: rotate(180deg);
+            color: var(--verde-clinico);
+        }
+
+        /* Ficha progresiva */
+        .ficha-progresiva {
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease, opacity 0.3s ease;
+            background: var(--gris-claro);
+            border-top: 1px solid transparent;
+        }
+
+        .service-card.active .ficha-progresiva {
+            max-height: 600px;
+            opacity: 1;
+            border-top-color: var(--gris-medio);
+            padding: 1.5rem 1rem;
+        }
+
+        .paso-indicador {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1.5rem;
+            padding: 0 0.5rem;
+        }
+
+        .paso {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex: 1;
+            font-size: 0.8rem;
+            color: var(--gris-medio);
+            transition: color 0.3s;
+        }
+
+        .paso.completado {
+            color: var(--verde-clinico);
+        }
+
+        .paso.activo {
+            color: var(--verde-oscuro);
+            font-weight: 600;
+        }
+
+        .paso i {
+            font-size: 1.2rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .campo-pregunta {
+            margin-bottom: 1.2rem;
+            animation: fadeIn 0.3s;
+        }
+
+        .campo-pregunta label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--gris-texto);
+        }
+
+        .campo-pregunta input, 
+        .campo-pregunta select,
+        .campo-pregunta textarea {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 2px solid var(--gris-medio);
+            border-radius: 16px;
+            font-family: var(--font-family);
+            font-size: 1rem;
+            background: white;
+            transition: var(--transition);
+        }
+
+        .campo-pregunta input:focus,
+        .campo-pregunta select:focus,
+        .campo-pregunta textarea:focus {
+            outline: none;
+            border-color: var(--verde-clinico);
+        }
+
+        .btn-paso {
+            background: var(--verde-clinico);
+            color: white;
+            border: none;
+            padding: 0.9rem;
+            border-radius: 40px;
+            font-weight: 600;
+            width: 100%;
+            margin-top: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .btn-paso:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .btn-enviar-ficha {
+            background: #25d366;
+            color: white;
+            border: none;
+            padding: 1rem;
+            border-radius: 40px;
+            font-weight: 600;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            transition: var(--transition);
+            margin-top: 1rem;
+        }
+
+        .btn-enviar-ficha i {
+            font-size: 1.3rem;
+        }
+
+        .resumen-final {
+            background: white;
+            padding: 1rem;
+            border-radius: 16px;
+            margin: 1rem 0;
+            font-size: 0.95rem;
+            border-left: 4px solid var(--verde-clinico);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ========== MODELO ATENCIÓN ========== */
+        .modelo-card {
+            background: var(--verde-claro);
+            padding: 2rem 1.5rem;
+            border-radius: 32px;
+            text-align: center;
+            border-left: 6px solid var(--verde-clinico);
+        }
+
+        .modelo-card p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+        }
+
+        .modelo-card i {
+            font-size: 2.5rem;
+            color: var(--verde-clinico);
+            margin-bottom: 1rem;
+        }
+
+        /* ========== CONTACTO ========== */
+        .map-placeholder {
+            width: 100%;
+            height: 200px;
+            background: var(--gris-claro);
+            border-radius: 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border: 2px dashed var(--gris-medio);
+            margin-bottom: var(--space-md);
+        }
+
+        .btn-contact-wa {
+            background: var(--verde-clinico);
+            color: white;
+            padding: 1rem;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            justify-content: center;
+        }
+
+        .ubicacion {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.1rem;
+            margin: var(--space-md) 0;
+        }
+
+        /* ========== FOOTER ========== */
+        .footer-note {
+            text-align: center;
+            padding: 2rem 0;
+            color: #88a39d;
+            font-size: 0.9rem;
+            border-top: 1px solid var(--gris-medio);
+        }
+
+        /* ========== MOBILE OPTIMIZATIONS ========== */
+        @media (max-width: 480px) {
+            .hero-content {
+                padding: 1.5rem;
+            }
+            
+            .service-header {
+                padding: 1rem;
+            }
+            
+            .service-header i {
+                font-size: 1.6rem;
+            }
+            
+            .service-header h3 {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ========== NAVBAR SIMPLE ========== -->
+<nav class="navbar">
+    <div class="container">
+        <a href="#" class="logo">
+            <i class="fas fa-heart-pulse"></i>
+            <span>Dra. Eva Villa</span>
+        </a>
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menú">
+            <i class="fas fa-bars"></i>
+        </button>
+    </div>
+</nav>
+
+<!-- ========== WHATSAPP FLOTANTE ========== -->
+<a href="https://wa.me/5281110419108?text=Hola%20Dra.%20Eva%2C%20quiero%20orientaci%C3%B3n%20para%20mi%20mascota." 
+   class="whatsapp-float" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+    <span>WhatsApp</span>
+</a>
+
+<!-- ========== HERO ========== -->
+<section class="hero" id="inicio">
+    <div class="container">
+        <div class="hero-content">
+            <img src="https://raw.githubusercontent.com/serviciosdigitalesmx/Dr-Eva-M.-Villa-Laureano/main/logo.png" 
+                 alt="Logo Dra. Eva Villa" class="hero-logo">
+            <h1>Dra. Eva M. Villa Laureano, MVZ</h1>
+            <p class="hero-sub">Atención médica veterinaria con enfoque preventivo y comunitario.</p>
+            <a href="https://wa.me/5281110419108?text=Hola%20Dra.%20Eva%2C%20quiero%20orientaci%C3%B3n%20para%20mi%20mascota." 
+               class="btn-wa-large" target="_blank">
+                <i class="fab fa-whatsapp"></i> Agendar consulta
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- ========== SOBRE MÍ ========== -->
+<section id="sobre-mi">
+    <div class="container">
+        <h2>Sobre mí</h2>
+        <div class="about-text">
+            <p>Soy la Dra. Eva Villa, médica veterinaria zootecnista, realizando mi servicio social profesional en Escobedo. Mi experiencia incluye la clínica diaria de perros y gatos, hospitalización, apoyo quirúrgico y toma de muestras diagnósticas. Me apasiona la prevención y el trabajo cercano con las familias para mantener sanos a sus compañeros de vida.</p>
+            <div class="exp-badge">
+                <span class="badge"><i class="fas fa-dog"></i> Perros y gatos</span>
+                <span class="badge"><i class="fas fa-hospital"></i> Hospitalización</span>
+                <span class="badge"><i class="fas fa-syringe"></i> Apoyo quirúrgico</span>
+                <span class="badge"><i class="fas fa-microscope"></i> Toma de muestras</span>
+                <span class="badge"><i class="fas fa-heart"></i> Protocolos preventivos</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========== SERVICIOS CON FICHAS PROGRESIVAS ========== -->
+<section id="servicios" class="section-alt">
+    <div class="container">
+        <h2>Servicios disponibles</h2>
+        <p style="margin-bottom: 1.5rem;">Toca cada servicio para llenar una ficha paso a paso y enviarla por WhatsApp.</p>
+        
+        <div class="services-grid" id="servicesContainer">
+            <!-- Cada servicio se generará dinámicamente con JS -->
+        </div>
+        
+        <p style="margin-top: 2rem; font-style: italic; color: #5b7a73;">
+            <i class="fas fa-leaf"></i> Atención enfocada a prevención y bienestar.
+        </p>
+    </div>
+</section>
+
+<!-- ========== MODELO DE ATENCIÓN ========== -->
+<section id="modelo">
+    <div class="container">
+        <h2>Modelo de atención</h2>
+        <div class="modelo-card">
+            <i class="fas fa-hand-holding-heart"></i>
+            <p>“La atención se realiza como parte de servicio social profesional. No existe una tarifa fija. Se acepta aportación voluntaria destinada a materiales e insumos médicos.”</p>
+        </div>
+    </div>
+</section>
+
+<!-- ========== CONTACTO ========== -->
+<section id="contacto" class="section-alt">
+    <div class="container">
+        <h2>Contacto</h2>
+        
+        <div class="map-placeholder">
+            <i class="fas fa-map-location-dot" style="font-size: 2.5rem; color: var(--verde-clinico);"></i>
+            <p style="margin-top: 0.5rem;">Escobedo, Nuevo León</p>
+            <small style="color: var(--gris-medio);">(Atención a domicilio)</small>
+        </div>
+        
+        <div class="ubicacion">
+            <i class="fas fa-map-pin" style="color: var(--verde-clinico);"></i>
+            <span><strong>Col. Centro, Escobedo, N.L.</strong></span>
+        </div>
+        
+        <a href="https://wa.me/5281110419108?text=Hola%20Dra.%20Eva%2C%20quiero%20orientaci%C3%B3n%20para%20mi%20mascota." 
+           class="btn-contact-wa" target="_blank">
+            <i class="fab fa-whatsapp"></i> +52 811 041 9108
+        </a>
+        
+        <p style="margin-top: 1.5rem; color: #56746d;">
+            <i class="far fa-clock"></i> Respuesta en horario de servicio social (9:00 - 17:00 hrs)
+        </p>
+    </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer class="footer-note container">
+    <p>© 2025 Dra. Eva Villa · Servicio social profesional · Escobedo, NL</p>
+</footer>
+
+<!-- ========== JAVASCRIPT CON FICHAS PROGRESIVAS ========== -->
+<script>
+    (function() {
+        // ========== CONFIGURACIÓN DE SERVICIOS ==========
+        const servicios = [
+            {
+                id: 'consulta',
+                icono: 'fa-stethoscope',
+                nombre: 'Consulta general',
+                preguntas: [
+                    { campo: 'mascota', tipo: 'text', placeholder: 'Ej: Firulais', etiqueta: '¿Cómo se llama tu mascota?' },
+                    { campo: 'edad', tipo: 'text', placeholder: 'Ej: 3 años', etiqueta: 'Edad aproximada' },
+                    { campo: 'especie', tipo: 'select', opciones: ['Perro', 'Gato'], etiqueta: 'Especie' },
+                    { campo: 'motivo', tipo: 'textarea', placeholder: '¿Qué le pasa?', etiqueta: 'Motivo de consulta' }
+                ]
+            },
+            {
+                id: 'preventiva',
+                icono: 'fa-shield-alt',
+                nombre: 'Medicina preventiva',
+                preguntas: [
+                    { campo: 'mascota', tipo: 'text', placeholder: 'Nombre', etiqueta: 'Nombre de tu mascota' },
+                    { campo: 'edad', tipo: 'text', placeholder: 'Edad', etiqueta: 'Edad' },
+                    { campo: 'vacunas', tipo: 'text', placeholder: 'Ej: falta pentavalente', etiqueta: '¿Vacunas pendientes?' },
+                    { campo: 'desparasitacion', tipo: 'text', placeholder: 'Fecha última', etiqueta: 'Última desparasitación' }
+                ]
+            },
+            {
+                id: 'desparasitacion',
+                icono: 'fa-worm',
+                nombre: 'Desparasitación',
+                preguntas: [
+                    { campo: 'mascota', tipo: 'text', placeholder: 'Nombre', etiqueta: 'Nombre' },
+                    { campo: 'peso', tipo: 'text', placeholder: 'Peso en kg', etiqueta: 'Peso aproximado' },
+                    { campo: 'sintomas', tipo: 'text', placeholder: 'Picor, decaimiento...', etiqueta: '¿Presenta síntomas?' }
+                ]
+            },
+            {
+                id: 'nutricion',
+                icono: 'fa-bowl-food',
+                nombre: 'Orientación nutricional',
+                preguntas: [
+                    { campo: 'mascota', tipo: 'text', placeholder: 'Nombre', etiqueta: 'Nombre' },
+                    { campo: 'edad', tipo: 'text', placeholder: 'Edad', etiqueta: 'Edad' },
+                    { campo: 'peso', tipo: 'text', placeholder: 'Peso', etiqueta: 'Peso' },
+                    { campo: 'alimento', tipo: 'text', placeholder: 'Marca/tipo', etiqueta: 'Alimento actual' }
+                ]
+            },
+            {
+                id: 'tratamientos',
+                icono: 'fa-droplet',
+                nombre: 'Aplicación de tratamientos',
+                preguntas: [
+                    { campo: 'mascota', tipo: 'text', placeholder: 'Nombre', etiqueta: 'Nombre' },
+                    { campo: 'tipo', tipo: 'text', placeholder: 'Inyección/pastilla', etiqueta: 'Tipo de tratamiento' },
+                    { campo: 'frecuencia', tipo: 'text', placeholder: 'Cada 8 horas...', etiqueta: 'Frecuencia' }
+                ]
+            },
+            {
+                id: 'muestras',
+                icono: 'fa-flask',
+                nombre: 'Toma de muestras',
+                preguntas: [
+                    { campo: 'mascota', tipo: 'text', placeholder: 'Nombre', etiqueta: 'Nombre' },
+                    { campo: 'tipo', tipo: 'select', opciones: ['Sangre', 'Orina', 'Heces', 'Citología'], etiqueta: 'Tipo de muestra' },
+                    { campo: 'ayuno', tipo: 'select', opciones: ['Sí', 'No'], etiqueta: '¿Ayuno requerido?' },
+                    { campo: 'sospecha', tipo: 'textarea', placeholder: 'Breve descripción', etiqueta: 'Sospecha clínica' }
+                ]
+            }
+        ];
+
+        // ========== RENDERIZAR SERVICIOS ==========
+        const container = document.getElementById('servicesContainer');
+        
+        servicios.forEach(serv => {
+            // Crear tarjeta
+            const card = document.createElement('div');
+            card.className = 'service-card';
+            card.dataset.service = serv.id;
+            
+            // Header
+            const header = document.createElement('div');
+            header.className = 'service-header';
+            header.innerHTML = `
+                <i class="fas ${serv.icono}"></i>
+                <h3>${serv.nombre}</h3>
+                <i class="fas fa-chevron-down chevron"></i>
+            `;
+            
+            // Ficha progresiva
+            const fichaDiv = document.createElement('div');
+            fichaDiv.className = 'ficha-progresiva';
+            
+            // Crear estructura de pasos
+            let pasosHtml = '<div class="paso-indicador">';
+            serv.preguntas.forEach((p, idx) => {
+                pasosHtml += `
+                    <div class="paso" data-paso="${idx}">
+                        <i class="far fa-circle"></i>
+                        <span>Paso ${idx+1}</span>
+                    </div>
+                `;
+            });
+            pasosHtml += '</div>';
+            
+            // Contenedor para la pregunta actual
+            const preguntaContainer = document.createElement('div');
+            preguntaContainer.className = 'pregunta-container';
+            
+            // Botones
+            const btnSiguiente = document.createElement('button');
+            btnSiguiente.className = 'btn-paso';
+            btnSiguiente.textContent = 'Siguiente';
+            
+            const btnEnviar = document.createElement('button');
+            btnEnviar.className = 'btn-enviar-ficha';
+            btnEnviar.style.display = 'none';
+            btnEnviar.innerHTML = '<i class="fab fa-whatsapp"></i> Enviar ficha por WhatsApp';
+            
+            // Resumen final
+            const resumen = document.createElement('div');
+            resumen.className = 'resumen-final';
+            resumen.style.display = 'none';
+            
+            fichaDiv.innerHTML = pasosHtml;
+            fichaDiv.appendChild(preguntaContainer);
+            fichaDiv.appendChild(btnSiguiente);
+            fichaDiv.appendChild(resumen);
+            fichaDiv.appendChild(btnEnviar);
+            
+            card.appendChild(header);
+            card.appendChild(fichaDiv);
+            container.appendChild(card);
+            
+            // Estado interno para la ficha progresiva
+            const estado = {
+                pasoActual: 0,
+                respuestas: {},
+                preguntas: serv.preguntas
+            };
+            
+            // Función para actualizar UI del paso
+            function actualizarPaso() {
+                const pasos = fichaDiv.querySelectorAll('.paso');
+                pasos.forEach((p, idx) => {
+                    p.classList.remove('activo', 'completado');
+                    if (idx < estado.pasoActual) {
+                        p.classList.add('completado');
+                        p.querySelector('i').className = 'fas fa-check-circle';
+                    } else if (idx === estado.pasoActual) {
+                        p.classList.add('activo');
+                        p.querySelector('i').className = 'fas fa-circle';
+                    } else {
+                        p.querySelector('i').className = 'far fa-circle';
+                    }
+                });
+                
+                // Mostrar pregunta actual
+                if (estado.pasoActual < estado.preguntas.length) {
+                    const p = estado.preguntas[estado.pasoActual];
+                    let inputHtml = `<div class="campo-pregunta"><label>${p.etiqueta}</label>`;
+                    
+                    if (p.tipo === 'select') {
+                        inputHtml += `<select id="input-${serv.id}-${p.campo}">`;
+                        p.opciones.forEach(op => {
+                            inputHtml += `<option value="${op}">${op}</option>`;
+                        });
+                        inputHtml += '</select>';
+                    } else if (p.tipo === 'textarea') {
+                        inputHtml += `<textarea id="input-${serv.id}-${p.campo}" placeholder="${p.placeholder || ''}" rows="2"></textarea>`;
+                    } else {
+                        inputHtml += `<input type="text" id="input-${serv.id}-${p.campo}" placeholder="${p.placeholder || ''}">`;
+                    }
+                    
+                    inputHtml += '</div>';
+                    preguntaContainer.innerHTML = inputHtml;
+                    
+                    // Precargar respuesta si existe
+                    if (estado.respuestas[p.campo]) {
+                        const input = document.getElementById(`input-${serv.id}-${p.campo}`);
+                        if (input) input.value = estado.respuestas[p.campo];
+                    }
+                    
+                    btnSiguiente.style.display = 'block';
+                    resumen.style.display = 'none';
+                    btnEnviar.style.display = 'none';
+                } else {
+                    // Mostrar resumen
+                    preguntaContainer.innerHTML = '';
+                    btnSiguiente.style.display = 'none';
+                    
+                    let resumenHtml = '<strong>📋 Resumen de tu solicitud:</strong><br>';
+                    estado.preguntas.forEach(p => {
+                        if (estado.respuestas[p.campo]) {
+                            resumenHtml += `<b>${p.etiqueta}:</b> ${estado.respuestas[p.campo]}<br>`;
+                        }
+                    });
+                    resumen.innerHTML = resumenHtml;
+                    resumen.style.display = 'block';
+                    btnEnviar.style.display = 'flex';
+                }
+            }
+            
+            // Evento para botón siguiente
+            btnSiguiente.addEventListener('click', () => {
+                if (estado.pasoActual < estado.preguntas.length) {
+                    const p = estado.preguntas[estado.pasoActual];
+                    const input = document.getElementById(`input-${serv.id}-${p.campo}`);
+                    if (input && input.value.trim()) {
+                        estado.respuestas[p.campo] = input.value;
+                        estado.pasoActual++;
+                        actualizarPaso();
+                    } else {
+                        alert('Por favor responde esta pregunta antes de continuar.');
+                    }
+                }
+            });
+            
+            // Evento para enviar por WhatsApp
+            btnEnviar.addEventListener('click', () => {
+                let mensaje = `🐾 *Ficha: ${serv.nombre}* 🐾\n\n`;
+                estado.preguntas.forEach(p => {
+                    if (estado.respuestas[p.campo]) {
+                        mensaje += `• ${p.etiqueta}: ${estado.respuestas[p.campo]}\n`;
+                    }
+                });
+                mensaje += '\nQuedo atenta para agendar. ¡Gracias!';
+                
+                const url = `https://wa.me/5281110419108?text=${encodeURIComponent(mensaje)}`;
+                window.open(url, '_blank');
+            });
+            
+            // Evento para abrir/cerrar tarjeta
+            header.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const isActive = card.classList.contains('active');
+                
+                // Cerrar todos
+                document.querySelectorAll('.service-card').forEach(c => {
+                    c.classList.remove('active');
+                });
+                
+                if (!isActive) {
+                    card.classList.add('active');
+                    actualizarPaso();
+                }
+            });
+        });
+
+        // ========== SMOOTH SCROLL ==========
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // ========== MENÚ MÓVIL SIMPLE ==========
+        const menuBtn = document.getElementById('mobileMenuBtn');
+        let menuVisible = false;
+        
+        menuBtn.addEventListener('click', () => {
+            menuVisible = !menuVisible;
+            if (menuVisible) {
+                // Crear menú temporal
+                const tempMenu = document.createElement('div');
+                tempMenu.id = 'temp-mobile-menu';
+                tempMenu.style.cssText = `
+                    position: fixed;
+                    top: 70px;
+                    left: 0;
+                    right: 0;
+                    background: white;
+                    padding: 1rem;
+                    box-shadow: var(--shadow-md);
+                    z-index: 999;
+                    border-radius: 0 0 24px 24px;
+                `;
+                tempMenu.innerHTML = `
+                    <ul style="list-style: none; display: flex; flex-direction: column; gap: 1rem;">
+                        <li><a href="#inicio" style="text-decoration: none; color: var(--gris-texto);"><i class="fas fa-home"></i> Inicio</a></li>
+                        <li><a href="#sobre-mi" style="text-decoration: none; color: var(--gris-texto);"><i class="fas fa-user-md"></i> Sobre mí</a></li>
+                        <li><a href="#servicios" style="text-decoration: none; color: var(--gris-texto);"><i class="fas fa-list"></i> Servicios</a></li>
+                        <li><a href="#modelo" style="text-decoration: none; color: var(--gris-texto);"><i class="fas fa-heart"></i> Modelo</a></li>
+                        <li><a href="#contacto" style="text-decoration: none; color: var(--gris-texto);"><i class="fas fa-phone"></i> Contacto</a></li>
+                    </ul>
+                `;
+                document.body.appendChild(tempMenu);
+                
+                // Cerrar al hacer clic en un enlace
+                tempMenu.querySelectorAll('a').forEach(a => {
+                    a.addEventListener('click', () => {
+                        tempMenu.remove();
+                        menuVisible = false;
+                    });
+                });
+            } else {
+                const temp = document.getElementById('temp-mobile-menu');
+                if (temp) temp.remove();
+            }
+        });
+
+        // ========== ANIMACIONES DE APARICIÓN ==========
+        const sections = document.querySelectorAll('section');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.2 });
+        
+        sections.forEach(section => {
+            section.style.opacity = 0;
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(section);
+        });
+    })();
+</script>
+</body>
+</html>
